@@ -135,31 +135,31 @@ class _WifiSelectState extends State<WifiSelect> {
                       },
                     ),
                   ),
-                  Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(40.0),
-                      child: FlatButton(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Home()));
-                        },
-                        color: ORANGE,
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            color: BEIGE,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Center(
+                  //   child: Padding(
+                  //     padding: EdgeInsets.all(40.0),
+                  //     child: FlatButton(
+                  //       padding:
+                  //           EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(20),
+                  //       ),
+                  //       onPressed: () {
+                  //         Navigator.push(context,
+                  //             MaterialPageRoute(builder: (context) => Home()));
+                  //       },
+                  //       color: ORANGE,
+                  //       child: Text(
+                  //         'Sign Up',
+                  //         style: TextStyle(
+                  //           color: BEIGE,
+                  //           fontSize: 20,
+                  //           fontWeight: FontWeight.bold,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               );
             }),
