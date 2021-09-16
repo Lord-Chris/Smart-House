@@ -5,29 +5,25 @@ import 'constants.dart';
 class Rooms extends StatelessWidget {
   final String room;
 
-  List<String> applian = ['TV', 'AC', 'Fan', 'Socket 1', 'Socket 2'];
+  final List<String> applian = ['TV', 'AC', 'Fan', 'Socket 1', 'Socket 2'];
 
   Rooms({Key key, this.room}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BEIGE,
+      backgroundColor: WHITE,
       appBar: AppBar(
         // toolbarHeight: 70,
-        backgroundColor: GREEN,
+        backgroundColor: BLUE,
         title: Text(
           room,
           style: TextStyle(
-            color: ORANGE,
+            color: WHITE,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          color: ORANGE,
-          onPressed: () {},
-        ),
+        automaticallyImplyLeading: true,
       ),
       body: Container(
         child: ListView.builder(
@@ -35,7 +31,7 @@ class Rooms extends StatelessWidget {
           itemBuilder: (__, index) {
             return Card(
               margin: EdgeInsets.all(8),
-              color: GREEN,
+              color: BLUE.withOpacity(0.3),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -47,10 +43,10 @@ class Rooms extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      backgroundColor: BEIGE,
+                      backgroundColor: BLUE.withOpacity(0.7),
                       child: Icon(
                         Icons.lightbulb,
-                        color: ORANGE,
+                        color: WHITE,
                       ),
                     ),
                     SizedBox(width: 15),
@@ -63,7 +59,7 @@ class Rooms extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 30,
                               fontStyle: FontStyle.italic,
-                              color: BLUE,
+                              color: WHITE,
                             ),
                           ),
                           Divider(color: BEIGE, thickness: 2),
@@ -72,7 +68,7 @@ class Rooms extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 20,
                               fontStyle: FontStyle.italic,
-                              color: BLUE,
+                              color: WHITE,
                             ),
                           ),
                           Text(
@@ -80,7 +76,7 @@ class Rooms extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 20,
                               fontStyle: FontStyle.italic,
-                              color: BLUE,
+                              color: WHITE,
                             ),
                           ),
                           Text(
@@ -88,7 +84,7 @@ class Rooms extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 20,
                               fontStyle: FontStyle.italic,
-                              color: BLUE,
+                              color: WHITE,
                             ),
                           ),
                         ],
@@ -105,11 +101,11 @@ class Rooms extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           onPressed: () {},
-                          color: ORANGE,
+                          color: BLUE,
                           child: Text(
                             'Turn On',
                             style: TextStyle(
-                              color: BEIGE,
+                              color: WHITE,
                               fontSize: 20,
                             ),
                           ),

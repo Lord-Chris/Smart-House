@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BEIGE,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -58,10 +58,10 @@ class Home extends StatelessWidget {
                     ),
                     // Spacer(),
                     CircleAvatar(
-                      backgroundColor: GREEN,
+                      backgroundColor: BLUE,
                       child: Icon(
                         Icons.person,
-                        color: ORANGE,
+                        color: WHITE,
                         size: 20,
                       ),
                     ),
@@ -92,15 +92,22 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              Divider(color: BLUE),
               Expanded(
-                flex: 3,
+                flex: 5,
                 child: Center(
                   child: Card(
                     elevation: 5,
-                    shape: CircleBorder(),
-                    child: CircleAvatar(
-                      radius: 150,
-                      backgroundColor: GREEN,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: BLUE.withOpacity(0.7),
+                      ),
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Column(
@@ -115,7 +122,7 @@ class Home extends StatelessWidget {
                                 fontSize: 50,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
-                                color: ORANGE,
+                                color: WHITE,
                               ),
                             ),
                             Text(
@@ -125,7 +132,7 @@ class Home extends StatelessWidget {
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,
                                 fontStyle: FontStyle.italic,
-                                color: ORANGE,
+                                color: WHITE,
                               ),
                             ),
                           ],
@@ -135,7 +142,9 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              Divider(color: BLUE),
               Expanded(
+                flex: 2,
                 child: Container(
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -152,7 +161,7 @@ class Home extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: GREEN,
+                            color: BLUE.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           height: 20,
@@ -169,7 +178,7 @@ class Home extends StatelessWidget {
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FontStyle.italic,
-                                    color: ORANGE,
+                                    color: WHITE,
                                   ),
                                 ),
                                 Text(
@@ -179,7 +188,7 @@ class Home extends StatelessWidget {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.italic,
-                                    color: ORANGE,
+                                    color: WHITE,
                                   ),
                                 ),
                               ],
