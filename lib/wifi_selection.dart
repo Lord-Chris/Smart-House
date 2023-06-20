@@ -25,15 +25,16 @@ class _WifiSelectState extends State<WifiSelect> {
     // var result = await Wifi.connection('ssid', 'password');
 
     // only work on Android.
-    try {
-      while (true) {
+    while (true) {
+      try {
         await Future.delayed(Duration(milliseconds: 300));
 
         list = await Wifi.list('');
-        print(list);
+        // print(list);
+        yield list;
+      } on Exception catch (e) {
+        print(e.toString());
       }
-    } on Exception catch (e) {
-      print(e.toString());
     }
   }
 
@@ -97,7 +98,7 @@ class _WifiSelectState extends State<WifiSelect> {
                             try {
                               var result =
                                   await Wifi.connection(list[index]?.ssid, '');
-                              if (result == WifiState.success) {
+                              if (result != WifiState.success) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(

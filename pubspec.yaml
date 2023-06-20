@@ -31,7 +31,7 @@ dependencies:
 
   local_auth: ^0.6.3+4
   # bluetooth: ^0.1.0
-  flutter_reactive_ble: ^2.7.1
+  # flutter_reactive_ble: ^2.7.1
   # wifi_iot: ^0.2.0
   wifi: ^0.1.5
 

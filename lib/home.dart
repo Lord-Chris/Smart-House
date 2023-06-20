@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:smart_house/rooms.dart';
 
@@ -13,11 +15,11 @@ class Home extends StatelessWidget {
     Icons.family_restroom
   ];
   final List<String> labels = [
-    'Room',
+    'BedRoom',
     'Laundry Room',
     'kitchen',
     'Store',
-    'Rest room'
+    'Reading room'
   ];
 
   @override
@@ -117,7 +119,7 @@ class Home extends StatelessWidget {
                             // Icon(Icons.power, size: 50, color: ORANGE),
                             SizedBox(height: 5),
                             Text(
-                              '50 kW/hr',
+                              '${Random().nextInt(50)} kW/hr',
                               style: TextStyle(
                                 fontSize: 50,
                                 fontWeight: FontWeight.bold,
@@ -126,7 +128,7 @@ class Home extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Power Consumption\nRate',
+                              'Total Power Consumption\nRate',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 25,
@@ -173,7 +175,7 @@ class Home extends StatelessWidget {
                               children: [
                                 // Icon(icons[index], size: 25, color: ORANGE),
                                 Text(
-                                  '50 kW/hr',
+                                  '${Random().nextInt(50)} kW/hr',
                                   style: TextStyle(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,

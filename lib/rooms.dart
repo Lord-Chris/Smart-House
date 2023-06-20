@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
@@ -5,7 +7,13 @@ import 'constants.dart';
 class Rooms extends StatelessWidget {
   final String room;
 
-  final List<String> applian = ['TV', 'AC', 'Fan', 'Socket 1', 'Socket 2'];
+  final List<String> applian = [
+    'TV',
+    'AC (Temp: ${(Random().nextDouble() * 10).toStringAsFixed(1)}`C)',
+    'Fan (Level: ${Random().nextInt(5)})',
+    'Socket 1',
+    'Socket 2',
+  ];
 
   Rooms({Key key, this.room}) : super(key: key);
   @override
@@ -57,36 +65,36 @@ class Rooms extends StatelessWidget {
                           Text(
                             applian[index],
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 25,
                               fontStyle: FontStyle.italic,
                               color: WHITE,
                             ),
                           ),
                           Divider(color: BEIGE, thickness: 2),
                           Text(
-                            'Off since: 5 hrs',
+                            'Off since: ${Random().nextInt(5)} hrs',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               fontStyle: FontStyle.italic,
                               color: WHITE,
                             ),
                           ),
                           Text(
-                            'Power Saved: 15 kW',
+                            'Power Saved: ${Random().nextInt(20)} kW',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               fontStyle: FontStyle.italic,
                               color: WHITE,
                             ),
                           ),
-                          Text(
-                            'AC temperature: 27`C',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontStyle: FontStyle.italic,
-                              color: WHITE,
-                            ),
-                          ),
+                          // Text(
+                          //   'AC temperature: 27`C',
+                          //   style: TextStyle(
+                          //     fontSize: 20,
+                          //     fontStyle: FontStyle.italic,
+                          //     color: WHITE,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -96,7 +104,7 @@ class Rooms extends StatelessWidget {
                       children: [
                         FlatButton(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                              horizontal: 15, vertical: 10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -106,7 +114,7 @@ class Rooms extends StatelessWidget {
                             'Turn On',
                             style: TextStyle(
                               color: WHITE,
-                              fontSize: 20,
+                              fontSize: 17,
                             ),
                           ),
                         ),
