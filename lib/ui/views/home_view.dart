@@ -22,60 +22,60 @@ class HomeView extends StatelessWidget {
     'Reading room'
   ];
 
+  HomeView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.roofing,
-                            color: BLUE,
-                            size: 30,
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.roofing,
+                          color: AppColors.blue,
+                          size: 30,
+                        ),
+                        SizedBox(width: 15),
+                        Text(
+                          'Smart Home',
+                          style: TextStyle(
+                            color: AppColors.blue,
+                            fontSize: 30,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
                           ),
-                          SizedBox(width: 15),
-                          Text(
-                            'Smart Home',
-                            style: TextStyle(
-                              color: BLUE,
-                              fontSize: 30,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     // Spacer(),
-                    CircleAvatar(
-                      backgroundColor: BLUE,
+                    const CircleAvatar(
+                      backgroundColor: AppColors.blue,
                       child: Icon(
                         Icons.person,
-                        color: WHITE,
+                        color: AppColors.white,
                         size: 20,
                       ),
                     ),
                   ],
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
                   'Welcome home,',
                   style: TextStyle(
-                    color: BLUE,
+                    color: AppColors.blue,
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.italic,
@@ -86,15 +86,15 @@ class HomeView extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10.0, bottom: 20),
                 child: Text(
                   name,
-                  style: TextStyle(
-                    color: BLUE,
+                  style: const TextStyle(
+                    color: AppColors.blue,
                     fontSize: 35,
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
-              Divider(color: BLUE),
+              const Divider(color: AppColors.blue),
               Expanded(
                 flex: 5,
                 child: Center(
@@ -108,33 +108,33 @@ class HomeView extends StatelessWidget {
                       width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: BLUE.withOpacity(0.7),
+                        color: AppColors.blue.withOpacity(0.7),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // Icon(Icons.power, size: 50, color: ORANGE),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Text(
                               '${Random().nextInt(50)} kW/hr',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 50,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
-                                color: WHITE,
+                                color: AppColors.white,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'Total Power Consumption\nRate',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,
                                 fontStyle: FontStyle.italic,
-                                color: WHITE,
+                                color: AppColors.white,
                               ),
                             ),
                           ],
@@ -144,63 +144,61 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(color: BLUE),
+              const Divider(color: AppColors.blue),
               Expanded(
                 flex: 2,
-                child: Container(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: icons.length,
-                    itemBuilder: (__, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => Rooms(room: labels[index]),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          margin: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: BLUE.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(20),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: icons.length,
+                  itemBuilder: (__, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => RoomsView(room: labels[index]),
                           ),
-                          height: 20,
-                          width: 120,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                // Icon(icons[index], size: 25, color: ORANGE),
-                                Text(
-                                  '${Random().nextInt(50)} kW/hr',
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FontStyle.italic,
-                                    color: WHITE,
-                                  ),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: AppColors.blue.withOpacity(0.7),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        height: 20,
+                        width: 120,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              // Icon(icons[index], size: 25, color: ORANGE),
+                              Text(
+                                '${Random().nextInt(50)} kW/hr',
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
+                                  color: AppColors.white,
                                 ),
-                                Text(
-                                  labels[index],
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FontStyle.italic,
-                                    color: WHITE,
-                                  ),
+                              ),
+                              Text(
+                                labels[index],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.italic,
+                                  color: AppColors.white,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

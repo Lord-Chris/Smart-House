@@ -8,6 +8,18 @@
             "name": "smart_house",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "smart_house (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "smart_house (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }

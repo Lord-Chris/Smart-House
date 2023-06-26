@@ -6,6 +6,8 @@ import 'package:smart_house/ui/views/wifi_selection_view.dart';
 import '../shared/constants.dart';
 
 class LoginView extends StatelessWidget {
+  const LoginView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +15,7 @@ class LoginView extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         // padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,10 +28,10 @@ class LoginView extends StatelessWidget {
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.roofing,
-                        color: WHITE,
+                        color: AppColors.white,
                         size: 40,
                       ),
                       Text(
@@ -49,7 +51,7 @@ class LoginView extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     SizedBox(height: MediaQuery.of(context).size.height * 0.07),
@@ -58,7 +60,7 @@ class LoginView extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Email',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.email,
                           color: Colors.blueAccent,
                         ),
@@ -71,7 +73,7 @@ class LoginView extends StatelessWidget {
                       keyboardType: TextInputType.visiblePassword,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Password',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.blueAccent,
                         ),
@@ -79,9 +81,9 @@ class LoginView extends StatelessWidget {
                     ),
                     Center(
                       child: Padding(
-                        padding: EdgeInsets.all(60.0),
+                        padding: const EdgeInsets.all(60.0),
                         child: MaterialButton(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 60, vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -90,12 +92,12 @@ class LoginView extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => WifiSelectionView(),
+                                builder: (context) => const WifiSelectionView(),
                               ),
                             );
                           },
                           color: Colors.blueAccent,
-                          child: Text(
+                          child: const Text(
                             'Log In',
                             style: TextStyle(
                               color: Colors.white,
@@ -113,10 +115,10 @@ class LoginView extends StatelessWidget {
                       children: [
                         Text.rich(
                           TextSpan(children: [
-                            TextSpan(
+                            const TextSpan(
                               text: 'Don\'t have an account? ',
                               style: TextStyle(
-                                color: BLUE,
+                                color: AppColors.blue,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,
                                 fontStyle: FontStyle.italic,
@@ -124,7 +126,7 @@ class LoginView extends StatelessWidget {
                             ),
                             TextSpan(
                               text: 'Create Account',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.blueAccent,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -135,7 +137,8 @@ class LoginView extends StatelessWidget {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignUp()),
+                                      builder: (_) => const SignUpView(),
+                                    ),
                                   );
                                 },
                             ),

@@ -6,12 +6,14 @@ import '../shared/constants.dart';
 import '../shared/scroll_column_expandable.dart';
 import 'login_view.dart';
 
-class SignUp extends StatelessWidget {
+class SignUpView extends StatelessWidget {
+  const SignUpView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         // padding: EdgeInsets.all(20),
         child: ScrollColumnExpandable(
@@ -26,10 +28,10 @@ class SignUp extends StatelessWidget {
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.roofing,
-                        color: WHITE,
+                        color: AppColors.white,
                         size: 40,
                       ),
                       Text(
@@ -49,7 +51,7 @@ class SignUp extends StatelessWidget {
             Expanded(
               flex: 4,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     SizedBox(height: MediaQuery.of(context).size.height * 0.07),
@@ -58,7 +60,7 @@ class SignUp extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Full Name',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.person,
                           color: Colors.blueAccent,
                         ),
@@ -71,7 +73,7 @@ class SignUp extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Email',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.email,
                           color: Colors.blueAccent,
                         ),
@@ -84,7 +86,7 @@ class SignUp extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Phone Number',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.phone,
                           color: Colors.blueAccent,
                         ),
@@ -98,7 +100,7 @@ class SignUp extends StatelessWidget {
                       obscureText: true,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Password',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.blueAccent,
                         ),
@@ -112,7 +114,7 @@ class SignUp extends StatelessWidget {
                       obscureText: true,
                       decoration: fieldDecor.copyWith(
                         hintText: 'Password',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.blueAccent,
                         ),
@@ -120,9 +122,9 @@ class SignUp extends StatelessWidget {
                     ),
                     Center(
                       child: Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: const EdgeInsets.all(40.0),
                         child: MaterialButton(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 60, vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -131,11 +133,11 @@ class SignUp extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => WifiSelectionView()),
+                                  builder: (_) => const WifiSelectionView()),
                             );
                           },
                           color: Colors.blueAccent,
-                          child: Text(
+                          child: const Text(
                             'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
@@ -150,10 +152,10 @@ class SignUp extends StatelessWidget {
                     Center(
                       child: Text.rich(
                         TextSpan(children: [
-                          TextSpan(
+                          const TextSpan(
                             text: 'Already have an account? ',
                             style: TextStyle(
-                              color: BLUE,
+                              color: AppColors.blue,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               fontStyle: FontStyle.italic,
@@ -161,7 +163,7 @@ class SignUp extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'Sign In',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.blueAccent,
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
@@ -172,7 +174,7 @@ class SignUp extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => LoginView(),
+                                    builder: (_) => const LoginView(),
                                   ),
                                 );
                               },

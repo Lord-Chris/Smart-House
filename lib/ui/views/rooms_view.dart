@@ -1,120 +1,133 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:smart_house/models/device_model.dart';
+import 'package:smart_house/services/iot_service.dart';
 
 import '../shared/constants.dart';
 
-
-class Rooms extends StatelessWidget {
+class RoomsView extends StatelessWidget {
   final String room;
 
-  final List<String> applian = [
-    'TV',
-    'AC (Temp: ${(Random().nextDouble() * 10).toStringAsFixed(1)}`C)',
-    'Fan (Level: ${Random().nextInt(5)})',
-    'Socket 1',
-    'Socket 2',
+  final List<DeviceModel> appliances = [
+    DeviceModel(
+      name: 'TV',
+      powerSaved: '${Random().nextInt(20)} kW',
+    ),
+    DeviceModel(
+      name: 'AC (Temp: ${(Random().nextDouble() * 10).toStringAsFixed(1)}`C)',
+      powerSaved: '${Random().nextInt(20)} kW',
+    ),
+    DeviceModel(
+      name: 'Fan (Level: ${Random().nextInt(5)})',
+      powerSaved: '${Random().nextInt(20)} kW',
+    ),
+    DeviceModel(
+      name: 'Socket 1',
+      powerSaved: '${Random().nextInt(20)} kW',
+    ),
+    DeviceModel(
+      name: 'Socket 2',
+      powerSaved: '${Random().nextInt(20)} kW',
+    ),
   ];
 
-  Rooms({Key key, this.room}) : super(key: key);
+  RoomsView({Key key, this.room}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WHITE,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        // toolbarHeight: 70,
-        backgroundColor: BLUE,
+        backgroundColor: AppColors.blue,
         title: Text(
           room,
-          style: TextStyle(
-            color: WHITE,
+          style: const TextStyle(
+            color: AppColors.white,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
         automaticallyImplyLeading: true,
       ),
-      body: Container(
-        child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (__, index) {
+      body: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (__, index) {
+          final device = appliances[index];
+          return HookBuilder(builder: (context) {
+            final isOn = useState(true);
             return Card(
-              margin: EdgeInsets.all(8),
-              color: BLUE.withOpacity(0.3),
+              margin: const EdgeInsets.all(8),
+              color: AppColors.blue.withOpacity(0.3),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      backgroundColor: BLUE.withOpacity(0.7),
-                      child: Icon(
+                      backgroundColor: AppColors.blue.withOpacity(0.7),
+                      child: const Icon(
                         Icons.lightbulb,
-                        color: WHITE,
+                        color: AppColors.white,
                       ),
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            applian[index],
-                            style: TextStyle(
+                            appliances[index].name,
+                            style: const TextStyle(
                               fontSize: 25,
                               fontStyle: FontStyle.italic,
-                              color: WHITE,
+                              color: AppColors.white,
                             ),
                           ),
-                          Divider(color: BEIGE, thickness: 2),
+                          const Divider(color: AppColors.beige, thickness: 2),
                           Text(
-                            'Off since: ${Random().nextInt(5)} hrs',
-                            style: TextStyle(
+                            'Off since: ${device.offHrs} hrs',
+                            style: const TextStyle(
                               fontSize: 15,
                               fontStyle: FontStyle.italic,
-                              color: WHITE,
+                              color: AppColors.white,
                             ),
                           ),
                           Text(
-                            'Power Saved: ${Random().nextInt(20)} kW',
-                            style: TextStyle( 
+                            'Power Saved: ${device.powerSaved}',
+                            style: const TextStyle(
                               fontSize: 15,
                               fontStyle: FontStyle.italic,
-                              color: WHITE,
+                              color: AppColors.white,
                             ),
                           ),
-                          // Text(
-                          //   'AC temperature: 27`C',
-                          //   style: TextStyle(
-                          //     fontSize: 20,
-                          //     fontStyle: FontStyle.italic,
-                          //     color: WHITE,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         MaterialButton(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          onPressed: () {},
-                          color: BLUE,
+                          onPressed: () {
+                            IOTService().turnOnDevice(device.id);
+                            isOn.value = !isOn.value;
+                          },
+                          color: AppColors.blue,
                           child: Text(
-                            'Turn On',
-                            style: TextStyle(
-                              color: WHITE,
+                            isOn.value ? 'Turn On' : 'Turn Off',
+                            style: const TextStyle(
+                              color: AppColors.white,
                               fontSize: 17,
                             ),
                           ),
@@ -125,8 +138,8 @@ class Rooms extends StatelessWidget {
                 ),
               ),
             );
-          },
-        ),
+          });
+        },
       ),
     );
   }
