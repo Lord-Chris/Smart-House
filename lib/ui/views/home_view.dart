@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:smart_house/rooms.dart';
 
-import 'constants.dart';
+import '../shared/constants.dart';
+import 'rooms_view.dart';
 
-class Home extends StatelessWidget {
+class HomeView extends StatelessWidget {
   final String name = 'John';
   final List<IconData> icons = [
     Icons.king_bed,
@@ -155,10 +155,11 @@ class Home extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Rooms(room: labels[index])));
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => Rooms(room: labels[index]),
+                            ),
+                          );
                         },
                         child: Container(
                           margin: EdgeInsets.all(10),

@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:smart_house/home.dart';
+import 'package:smart_house/ui/views/home_view.dart';
 import 'package:wifi/wifi.dart';
 
-import 'constants.dart';
+import '../shared/constants.dart';
 
-class WifiSelect extends StatefulWidget {
+class WifiSelectionView extends StatefulWidget {
   @override
   _WifiSelectState createState() => _WifiSelectState();
 }
 
-class _WifiSelectState extends State<WifiSelect> {
+class _WifiSelectState extends State<WifiSelectionView> {
   StreamSubscription<List<WifiResult>> _sub;
   List<WifiResult> list = [];
   Stream<List<WifiResult>> func() async* {
@@ -100,11 +100,13 @@ class _WifiSelectState extends State<WifiSelect> {
                                   await Wifi.connection(list[index]?.ssid, '');
                               if (result != WifiState.success) {
                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()));
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomeView(),
+                                  ),
+                                );
                               } else {
-                                Scaffold.of(context).showSnackBar(
+                                ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     duration: const Duration(seconds: 3),
                                     content: Text(

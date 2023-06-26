@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_house/login.dart';
-import 'package:smart_house/wifi_selection.dart';
+import 'package:smart_house/ui/views/wifi_selection_view.dart';
 
-import 'constants.dart';
-import 'scroll_column_expandable.dart';
+import '../shared/constants.dart';
+import '../shared/scroll_column_expandable.dart';
+import 'login_view.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -121,7 +121,7 @@ class SignUp extends StatelessWidget {
                     Center(
                       child: Padding(
                         padding: EdgeInsets.all(40.0),
-                        child: FlatButton(
+                        child: MaterialButton(
                           padding: EdgeInsets.symmetric(
                               horizontal: 60, vertical: 15),
                           shape: RoundedRectangleBorder(
@@ -129,9 +129,10 @@ class SignUp extends StatelessWidget {
                           ),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => WifiSelect()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => WifiSelectionView()),
+                            );
                           },
                           color: Colors.blueAccent,
                           child: Text(
@@ -171,7 +172,8 @@ class SignUp extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginPage()),
+                                    builder: (_) => LoginView(),
+                                  ),
                                 );
                               },
                           ),

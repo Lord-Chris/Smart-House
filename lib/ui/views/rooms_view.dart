@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../shared/constants.dart';
+
 
 class Rooms extends StatelessWidget {
   final String room;
@@ -81,7 +82,7 @@ class Rooms extends StatelessWidget {
                           ),
                           Text(
                             'Power Saved: ${Random().nextInt(20)} kW',
-                            style: TextStyle(
+                            style: TextStyle( 
                               fontSize: 15,
                               fontStyle: FontStyle.italic,
                               color: WHITE,
@@ -102,7 +103,7 @@ class Rooms extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FlatButton(
+                        MaterialButton(
                           padding: EdgeInsets.symmetric(
                               horizontal: 15, vertical: 10),
                           shape: RoundedRectangleBorder(
